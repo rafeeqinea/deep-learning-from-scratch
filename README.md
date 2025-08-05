@@ -26,22 +26,24 @@ To master deep learning by implementing every foundational concept from scratch 
 
 ## 🧱 Structure
 
+```
 deep-learning-from-scratch/
 │
-├── core/ # All core logic (by chapter/topic)
-│ ├── linear_algebra/ # Matrix ops, norms, dot product, eigens
-│ ├── calculus/ # Derivatives, gradients
-│ ├── probability/ # Distributions, entropy
-│ ├── optimization/ # SGD, Adam, momentum
-│ ├── nn/ # Layers, activations, forward pass
-│ ├── autograd/ # Manual autograd engine (later)
+├── core/                  # All core logic (by chapter/topic)
+│   ├── linear_algebra/    # Matrix ops, norms, dot product, eigens
+│   ├── calculus/          # Derivatives, gradients
+│   ├── probability/       # Distributions, entropy
+│   ├── optimization/      # SGD, Adam, momentum
+│   ├── nn/                # Layers, activations, forward pass
+│   ├── autograd/          # Manual autograd engine (later)
 │
-├── demos/ # Working examples using core code
-├── tests/ # Tests for each module
-├── docs/ # Notes and markdowns for theory
-├── notebooks/ # Optional Jupyter notebooks
-├── assets/ # Diagrams and visuals
-└── playground/ # Experimental scratchpad
+├── demos/                 # Working examples using core code
+├── tests/                 # Tests for each module
+├── docs/                  # Notes and markdowns for theory
+├── notebooks/             # Optional Jupyter notebooks
+├── assets/                # Diagrams and visuals
+└── playground/            # Experimental scratchpad
+```
 
 
 ---
@@ -85,4 +87,3 @@ If you can build this, you’ll never fear PyTorch or TensorFlow again.
 MIT License — use, fork, or remix freely.
 
 ---
-
