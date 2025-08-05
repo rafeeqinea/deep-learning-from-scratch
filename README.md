@@ -44,11 +44,6 @@ deep-learning-from-scratch/
 ├── assets/                # Diagrams and visuals
 └── playground/            # Experimental scratchpad
 ```
-<<<<<<< HEAD
-=======
-
->>>>>>> 8ab975b (README.md)
-
 
 ---
 
@@ -91,3 +86,5 @@ If you can build this, you’ll never fear PyTorch or TensorFlow again.
 MIT License — use, fork, or remix freely.
 
 ---
+
+
