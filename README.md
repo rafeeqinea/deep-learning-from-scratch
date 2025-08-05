@@ -44,6 +44,10 @@ deep-learning-from-scratch/
 ├── assets/                # Diagrams and visuals
 └── playground/            # Experimental scratchpad
 ```
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8ab975b (README.md)
 
 
 ---
