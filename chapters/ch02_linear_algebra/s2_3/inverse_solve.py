@@ -21,7 +21,7 @@ def is_invertible(A, tol=None):
     if n != m:
         return False
     rank = np.linalg.matrix_rank(A, tol=tol)
-    return rank == n
+    return bool(rank == n)
 
 
 def solve(A, b):

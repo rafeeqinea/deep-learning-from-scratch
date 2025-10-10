@@ -15,7 +15,7 @@ def test_eig_sym_spd_matrix():
     # Orthonormal eigenvectors: V^T V ≈ I
     assert np.allclose(V.T @ V, np.eye(5), atol=1e-10)
     # Reconstruction: A ≈ V diag(w) V^T
-    A_rec = V @ (w * V.T)  # broadcasting places w on the diagonal
+    A_rec = (V * w) @ V.T  # scale columns of V → V @ diag(w) @ V.T
     assert np.allclose(A_rec, A, atol=1e-10)
     # Eigenvalues are >= 0.1 because of the +0.1*I shift
     assert np.min(w) >= 0.1 - 1e-12
@@ -27,7 +27,7 @@ def test_spectral_decomp_symmetrizes_small_asymmetry():
     # spectral_decomp symmetrizes first
     w, V = spectral_decomp(A)
     A_sym = 0.5 * (A + A.T)
-    A_rec = V @ (w * V.T)
+    A_rec = (V * w) @ V.T
     assert np.allclose(A_rec, A_sym, atol=1e-12)
 
 def test_is_positive_definite_and_negatives():
@@ -58,5 +58,5 @@ def test_eig_sym_raises_on_large_asymmetry_without_symmetrize():
     # With symmetrization allowed, it should work (on the symmetric part)
     w, V = eig_sym(A, tol=1e-8, allow_symmetrize=True)
     A_sym = 0.5 * (A + A.T)
-    A_rec = V @ (w * V.T)
+    A_rec = (V * w) @ V.T
     assert np.allclose(A_rec, A_sym, atol=1e-12)

@@ -92,4 +92,4 @@ def is_positive_definite(A, tol=1e-12):
     ensure_matrix(A)
     A = _symmetrize(A)
     w = np.linalg.eigvalsh(A)
-    return np.min(w) > float(tol)
+    return bool(np.min(w) > float(tol))

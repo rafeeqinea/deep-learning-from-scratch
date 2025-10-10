@@ -15,7 +15,7 @@ def is_diagonal(A, tol=0.0):
     """
     ensure_matrix(A)
     D = np.diag(np.diag(A))          # keep the diagonal, zero elsewhere
-    return np.allclose(A, D, atol=float(tol), rtol=0.0)
+    return bool(np.allclose(A, D, atol=float(tol), rtol=0.0))
 
 
 def is_symmetric(A, tol=1e-8):
@@ -23,7 +23,7 @@ def is_symmetric(A, tol=1e-8):
     Return True if A is (numerically) symmetric: A == A^T within tolerance.
     """
     ensure_matrix(A)
-    return np.allclose(A, A.T, atol=float(tol), rtol=0.0)
+    return bool(np.allclose(A, A.T, atol=float(tol), rtol=0.0))
 
 
 def is_orthogonal(Q, tol=1e-8):
@@ -35,7 +35,7 @@ def is_orthogonal(Q, tol=1e-8):
     if n != m:
         return False  # must be square
     I = np.eye(n, dtype=Q.dtype)
-    return np.allclose(Q.T @ Q, I, atol=float(tol), rtol=0.0)
+    return bool(np.allclose(Q.T @ Q, I, atol=float(tol), rtol=0.0))
 
 
 def is_psd(A, tol=1e-10):
@@ -65,4 +65,4 @@ def is_psd(A, tol=1e-10):
         w = np.linalg.eigvals(A).real
 
     # Allow small negative values within tolerance
-    return np.min(w) >= -float(tol)
+    return bool(np.min(w) >= -float(tol))

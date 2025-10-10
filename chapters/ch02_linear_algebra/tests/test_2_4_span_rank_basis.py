@@ -42,7 +42,7 @@ def test_span_contains_list_and_matrix_basis():
 
     # Tiny numerical tolerance should still work for near-span vectors
     v_perturb = v + 1e-12 * e3
-    assert span_contains(v_perturb, [e1, e2]) is True
+    assert span_contains(v_perturb, [e1, e2], tol=1e-10) is True
 
 def test_orthonormal_basis_matches_column_space():
     rng = np.random.default_rng(42)

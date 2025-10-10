@@ -96,4 +96,4 @@ def span_contains(v, basis, tol=None):
         eps = np.finfo(v.dtype).eps if np.issubdtype(v.dtype, np.floating) else 1e-12
         tol = 10.0 * (np.linalg.norm(v, ord=2) + 1.0) * eps * max(n, k)
 
-    return res_norm <= tol
+    return bool(res_norm <= tol)

@@ -20,11 +20,11 @@ def test_is_symmetric_basic():
     S = np.array([[1.0, 2.0],
                   [2.0, 3.0]], dtype=np.float64)
     assert is_symmetric(S)
+    # Make it non-symmetric by perturbing one OFF-diagonal element
     NS = np.array([[1.0, 2.0],
-                   [2.0, 3.0 + 1e-6]], dtype=np.float64)
-    assert is_symmetric(NS) is False
-    # Tiny asymmetry can be tolerated with a larger tol
-    assert is_symmetric(NS, tol=1e-5)
+                   [2.0 + 1e-6, 3.0]], dtype=np.float64)
+    assert is_symmetric(NS) is False         # strict tolerance
+    assert is_symmetric(NS, tol=1e-5) is True  # looser tolerance accepts it
 
 def test_is_orthogonal_qr():
     rng = np.random.default_rng(0)

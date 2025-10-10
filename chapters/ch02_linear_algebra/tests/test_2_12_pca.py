@@ -39,15 +39,16 @@ def test_explained_variance_and_cumulative():
     # Make a matrix with known singular values using SVD construction
     rng = np.random.default_rng(2)
     m, n = 15, 6
-    U, _ = np.linalg.qr(rng.normal(size=(m, m)))
-    V, _ = np.linalg.qr(rng.normal(size=(n, n)))
-    S_true = np.array([5.0, 3.0, 1.0, 0.5, 0.2, 0.1], dtype=np.float64)
-    # Build centered-like matrix with those singulars
-    S_mat = np.zeros((m, n), dtype=np.float64)
-    np.fill_diagonal(S_mat, S_true)
-    Xc = (U[:, :n] @ S_mat) @ V.T
+    U, _ = np.linalg.qr(rng.normal(size=(m, m)))  # (m,m) orthogonal
+    V, _ = np.linalg.qr(rng.normal(size=(n, n)))  # (n,n) orthogonal
+    S_true = np.array([5.0, 3.0, 1.0, 0.5, 0.2, 0.1], dtype=np.float64)  # length n
 
-    # SVD should recover S_true (up to tiny noise)
+    # Correct SVD-style construction:
+    # Xc = U[:,:n] @ diag(S_true) @ V.T   -> shape (m, n)
+    S_diag = np.diag(S_true)              # (n, n)
+    Xc = (U[:, :n] @ S_diag) @ V.T
+
+    # SVD should recover S_true (up to tiny numerical noise)
     Ux, S, VTx = pca_svd(Xc)
     assert np.allclose(S, S_true, atol=1e-10)
 
@@ -60,6 +61,7 @@ def test_explained_variance_and_cumulative():
     # Ratios follow square of singulars
     lam = S ** 2
     assert np.allclose(var_ratio, lam / lam.sum())
+
 
 def test_projection_and_reconstruction_error_matches_tail_energy():
     rng = np.random.default_rng(3)
