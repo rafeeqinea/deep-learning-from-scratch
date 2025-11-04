@@ -122,7 +122,7 @@ chapters/ch03_probability/
 
 ---
 
-### ch04_numerical/
+### ch04_numerical/ (under progress)
 
 ```
 chapters/ch04_numerical/
@@ -149,7 +149,7 @@ chapters/ch04_numerical/
 
 ---
 
-### ch05_ml_basics/
+### ch05_ml_basics/ (under progress)
 
 ```
 chapters/ch05_ml_basics/
@@ -176,7 +176,7 @@ chapters/ch05_ml_basics/
 
 ---
 
-### ch06_feedforward/
+### ch06_feedforward/ (under progress)
 
 ```
 chapters/ch06_feedforward/
@@ -203,7 +203,7 @@ chapters/ch06_feedforward/
 
 ---
 
-### ch07_regularization/
+### ch07_regularization/ (under progress)
 
 ```
 chapters/ch07_regularization/
@@ -218,7 +218,7 @@ chapters/ch07_regularization/
 
 ---
 
-### ch08_optimization/
+### ch08_optimization/ (under progress)
 
 ```
 chapters/ch08_optimization/
